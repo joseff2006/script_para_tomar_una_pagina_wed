@@ -1,1 +1,1 @@
-
+ip scaner, se usa para scanear red y ver dispositivos que estan conectados 
