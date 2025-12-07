@@ -1,1 +1,6 @@
+1 visual studio code : edito de codgo con muchas extencones para utilizar y correr nuestro codigo
+
+2 github : lugar en la nube para derarrolladores donde se puede subir codigo y demas archivos y vienen con un visual studio code integrado
+
+3 node.js : es una herramenta que ayuda a que podamos correr codigo java scritp en nuestra pc 
 
