@@ -1,6 +1,6 @@
 
 #########################################################################################################################
-ip scaner : se usa para escanear redes y visualizar las redes que estan en el mismo router en el que estoy 
+ 1 ip scaner : se usa para escanear redes y visualizar las redes que estan en el mismo router en el que estoy 
 Un **IP Scanner** es una herramienta que analiza una red para descubrir todos los dispositivos conectados y mostrar información clave sobre ellos.  
 
 
@@ -26,7 +26,7 @@ LINK DE DESCARGA : https://www.advanced-ip-scanner.com/es/
 
 ################################################################################################################################
 
-Cisco paquet tracer :
+2 Cisco paquet tracer :
 
 ## 🌐 ¿Qué es Cisco Packet Tracer?
 
