@@ -170,7 +170,7 @@ After interacting with a module you can manually set a TARGET with set TARGET 'N
 15 net user
 16 net localgroup
 17 ipconfig
-18 net user (nombre) (contra) /add
+18 net user (nombre) (contra) /add                   .
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
