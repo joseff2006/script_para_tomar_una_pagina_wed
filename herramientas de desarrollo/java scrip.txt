@@ -1,1 +1,2 @@
+1 node.js > Node.js es un entorno de ejecución que permite correr JavaScript fuera del navegador, especialmente en servidores. Es ampliamente usado para crear aplicaciones web rápidas, escalables y eficientes, tanto en el backend como en el frontend.
 
