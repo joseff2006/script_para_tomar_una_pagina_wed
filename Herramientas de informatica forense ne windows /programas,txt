@@ -1,1 +1,8 @@
+1 Registros de eventos - Se abre normalmente wind + R escribiendo EVENTVWR.MSC  en el cuadro de búsqueda o en la ventana de Ejecutar.
 
+El Visor de eventos de Windows sirve para registrar y mostrar toda la actividad relevante del 
+sistema operativo, aplicaciones y seguridad, permitiendo a administradores y analistas revisar 
+inicios de sesión, errores, advertencias, procesos ejecutados y cambios importantes. En ciberseguridad 
+\es fundamental porque ayuda a detectar accesos remotos, intentos de intrusión, borrado de registros y
+cualquier comportamiento sospechoso, convirtiéndose en una herramienta clave para el diagnóstico, la 
+auditoría y el análisis forense de un equipo.
