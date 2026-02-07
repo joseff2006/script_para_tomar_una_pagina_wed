@@ -5,3 +5,25 @@
 3 copiar en linux   teclas control,shift,c
 
 4 pegar  teclas control,shit,v
+
+5 ls: muestra las carpetas y archivos en el directorio actual
+
+6 pwd: muestra la ruta del directorio actual
+
+7 mkdir: crea un nuevo directorio
+
+8 cd: cambia de directorio
+
+9 cd ..: sale del directorio actual
+
+10 ls -l: muestra las carpetas y archivos del directorio actual con todos los detalles
+
+11 ls -a: muestra los archivos ocultos si se encuentran en el directorio seleccionado.
+
+12 touch [archivo.extension]: crea un archivo vacío
+
+13 cp viejo-archivo.ext nuevo-archivo.ext: copia un archivo
+
+14 mv viejo-archivo.ext nuevo-archivo.ext: mueve un archivo
+
+16 rm viejo-archivo.ext: elimina un archivo (Corregido: la imagen decía "copia")
