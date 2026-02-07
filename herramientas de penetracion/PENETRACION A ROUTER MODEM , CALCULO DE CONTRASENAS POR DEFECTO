@@ -1,21 +1,42 @@
 PENETRACION A ROUTER MODEM , CALCULO DE CONTRASENAS POR DEFECTO
 
-como se sabe que una adaptador red esta conectado, ? porque al hacer un ipconfg all aparece con una 
+0 como se sabe que una adaptador red esta conectado, ? porque al hacer un ipconfg all aparece con una 
 coneccion de un gatwey predeterminada 
 
-ENCRIPTACION DE CONTRASENAS :
+1 ENCRIPTACION DE CONTRASENAS :
 
-1 Jose Ismael 
+ Jose Ismael 
   f053 15w@37
 
-34-17-EB-B7-AB-81 = direccion mac o fisica o mac address 
+2 34-17-EB-B7-AB-81 = direccion MAC o direccion fisica o MAC address 
 
-direciion unica del adaptador de red de cualquier dispositivo que se coinecte a una red  o que 
-comparta la conexion de una red.
+3 DISPOSITIVOS FINALES: PC, LAPTOS,SMARTPHONES, TABLESTS, SMARTV,SMARTFREEEZERS , SMART AIR
+ ETC. SON AQUELLOS QUE NECESITAN INTERNET DE LOS DIPOSITIVOS DE RED PARA CONECTARSE.
 
-Es decir, cuando solicito la conexion a una red , comparto mi direccion mac, y 
-cuando comparto o pongo a disposicion unha red para que 
-se conecten a diche red a travez de mi , comparto la direccion mac de
-mi adaptador.
+4 DISPOSITIVOS DE RED: ROUTERS, MODEM, SWITCH , FIREWALL, RESPETIDORES, ANTENAS , PARABOLAS, TORRES, ETC 
 
-UNA DIRECCION MAC, ESTA COMPUESTA POR 6 GRUPOS DE 2  
+5 MODEN : Modulator/demodulador = modulador,demodulador : convierte la senal electromagnetica 
+ a senal electrica y viseversa.
+
+6 Router: tiene un modem integrado
+7 Switch: tiene un modem integrado
+8 firewall tiene un modem integrado 
+
+
+9 MEDIOS DE CONEXION: COBRE, FIBRA OPTICA, Y SENALES ELECTROMAGNETICAS 
+
+
+10 direciion unica del adaptador de red de cualquier dispositivo que se coinecte a una red  o que 
+  comparta la conexion de una red.
+
+11 Es decir, cuando solicito la conexion a una red , comparto mi direccion mac, y 
+ cuando comparto o pongo a disposicion unha red para que 
+ se conecten a diche red a travez de mi , comparto la direccion mac de
+ mi adaptador.
+
+12 Unidad de frecuencia para medir la freuencia electromagnetica se llama GHZ , Y ESTO MIDE LA CANTIDAD DE  
+FRECUENCIA VECES QUE SE REPITE UNA ONDA ELECTROMAGNETICA EN EL ESPACIO TIEMPO.
+
+13  UNA DIRECCION MAC, ESTA COMPUESTA POR 6 GRUPOS DE 2  DIGITOS 
+  (estos pueden ser del 0 al 9 y de la letra A ala letra Z)
+
