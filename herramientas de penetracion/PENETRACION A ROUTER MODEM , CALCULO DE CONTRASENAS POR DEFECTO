@@ -66,6 +66,23 @@ RED POR PARTE DE OTROS DISPOSITIVOS.
 multifuncion, este dispositivo, puede ver SSID de la red y puede solicitar una session de conexion con el dispositivo 
 multifuncion y una vez registradas y verificadas las credenciales de acceso, se establece la conexion entre ambos dispositivos.
 
-21 LABORATORIA 
+21 LABORATORIO : CALCULAR LA CONTRASENA POR DEFECTO DE UN ROUTER DE BOLSILLO PARTIENDO DE SU SSID Y DE SU DIRECCION MAC
+
+DATOS EJEMPLO CON EL PORTATIL DEL PROFESOR  
+
+     SSID:CLARO_INTERNET_2.4GHZ_DB1
+      MAC:?
+CONTRASENA:? 
+
+FORMULA: EL NOMBRE DEL ISP +ULTIMOS 4 DIGITOS DE LA MAC 
+
+NOTA: EN EL SSID POR DEFECTO, SE OBTIENE EL NOMBRE DEL ISP 
+Y LOS 3 DIGITOS DE LA MAC, POR ENDE SOLO NECESITAMOS CALCULAR EL 
+ULTIMO DIGITO DE LA MAC PARA COMPLETAR LA CONTRASENA.
+
+Diccionario de posibles contrasenas:  
+
+
+
 
 
