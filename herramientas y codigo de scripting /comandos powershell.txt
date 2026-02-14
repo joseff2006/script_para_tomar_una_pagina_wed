@@ -1,0 +1,34 @@
+comando para buscar procesos 
+
+### Línea de comando principal (PowerShell Pipeline)
+
+powershell
+Get-Process -Name "Code" | Where-Object { $_.WorkingSet -gt 200MB } | Select-Object Id, ProcessName
+
+
+
+####### instrucciones paso a paso ##############################
+
+paso #1: en el cmd, ejecutar:
+
+cmd
+tasklist
+
+
+luego, elija un proceso y copie su nombre (sin el .exe)
+
+paso #2: en powershell, ejecutar:**
+
+powershell
+Get-Process -Name "nombre-proceso"
+
+
+**Nota:** sustituye la palabra "nombre-proceso" por el nombre del proceso seleccionado en el paso anterior.
+
+ejemplo:
+
+powershell
+Get-Process -name "chrome"
+
+
+
