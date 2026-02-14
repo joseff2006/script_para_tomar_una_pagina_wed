@@ -23,7 +23,7 @@ powershell
 Get-Process -Name "nombre-proceso"
 
 
-**Nota:** sustituye la palabra "nombre-proceso" por el nombre del proceso seleccionado en el paso anterior.
+Nota: sustituye la palabra "nombre-proceso" por el nombre del proceso seleccionado en el paso anterior.
 
 ejemplo:
 
@@ -32,7 +32,7 @@ Get-Process -name "chrome"
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
- **Comando Principal de Análisis (Lab #2)**
+ Comando Principal de Análisis (Lab #2)**
 
 Este comando filtra procesos específicos basándose en su uso de memoria:
 
@@ -43,7 +43,7 @@ Get-Process -Name "Code" | Where-Object { $_.WorkingSet -gt 200MB } | Select-Obj
 ### **Instrucciones para el Lab #1**
 
 1. En el CMD, ejecutar:
-```cmd
+cmd
 tasklist
 
 
@@ -53,15 +53,17 @@ tasklist
 Get-Process -Name "nombre-proceso" | Where-Object { $_.WorkingSet -gt valor-numerico-unidad-almacenamiento }
 
 
-> **Nota:** Sustituye `nombre-proceso` por el nombre que elegiste y `valor-numerico-unidad-almacenamiento` por un valor (ejemplo: `100MB`).
+> Nota: Sustituye `nombre-proceso` por el nombre que elegiste y `valor-numerico-unidad-almacenamiento` por un valor (ejemplo: `100MB`).
 
 
-3. **Repetir:** Realizar este ejercicio con todos los procesos listados en el comando `tasklist`.
+3. Repetir: Realizar este ejercicio con todos los procesos listados en el comando `tasklist`.
 
 Ejemplo práctico:
 
-```powershell
-Get-Process -name "chrome" | Where-Object { $_.WorkingSet -gt 200MB }
+powershell
+Get-Process -name "chrome" | Where-Object { $_.WorkingSet -gt 20MB }  -   xxxxxx se usa para ver un proceso en especifico que pese esa cantidad en mb
+
+Get-Process -Name "igfxcuiservice" | Where-Object { $_.WorkingSet -gt 200MB } | Select-Object Id, ProcessName  xxxxx se usa para ver un dato especifico  de todas las tablas que presentan ejemplo el id
 
 
 
