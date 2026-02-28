@@ -1,0 +1,51 @@
+Comandos para manejar el administrador de tareas desde el cmd:
+
+Importante: Abrir el cmd (Command prompt o simbolo del sistema) como administrador
+
+Formas de ver las tareas
+
+1. tasklist: Listado básico de todos los procesos.
+
+2. tasklist /v: Muestra detalles adicionales como el estado y el nombre de usuario (modo "verbose").
+
+3. tasklist /svc: Relaciona cada proceso con los servicios que está ejecutando.
+
+4. tasklist /m: Lista los módulos (DLLs) cargados por cada proceso.
+
+5. tasklist /fi "memusage gt 100000": Filtra procesos que consumen más de 100MB de RAM.
+
+6. tasklist /fi "status eq running": Muestra solo los procesos que están en ejecución activa.
+
+7. tasklist /s [IP_Remota] /u [Usuario]: Consulta los procesos en una computadora de tu red.
+
+Formas de Finalizar la tarea:
+
+1. taskkill /im nombre.exe: Cierra un programa por su nombre de imagen.
+
+2. taskkill /pid 1234: Cierra un programa usando su número de identificación único (PID).
+
+3. taskkill /f /im nombre.exe: Cierre forzado de un programa que no responde.
+
+4. taskkill /t /im nombre.exe: Cierra el proceso y todos sus "hijos" (subprocesos).
+
+5. taskkill /fi "username eq FREELANCER-KFH": Cierra todos los procesos iniciados por un usuario específico.
+
+6. taskkill /fi "status eq not responding": Comando de "limpieza": cierra todo lo que esté colgado.
+
+6. taskkill /f /im explorer.exe & start explorer.exe: Reinicia el explorador de Windows (útil si la barra de tareas falla).
+
+Controlo Avanzado con WMIC
+
+Nota: wmic es una herramienta de administración muy potente que permite obtener datos técnicos profundos.
+
+1. wmic process list brief: Una lista compacta con PID, prioridad y uso de memoria.
+
+2. wmic process where name="chrome.exe" get executablepath: Te dice exactamente en qué carpeta está instalado el programa que corre.
+
+3. wmic process where name="cmd.exe" call terminate: Una forma alternativa de matar procesos mediante consultas.
+
+4. wmic process get caption,commandline: Muestra el comando exacto (y sus parámetros) con el que se lanzó cada programa.
+
+5. wmic process where processid=1234 get creationdate: Te dice la hora exacta en la que se inició un proceso.
+
+6. wmic process where "name='java.exe'" setpriority 128: Cambia la prioridad de un proceso a "Alta" en tiempo real.
